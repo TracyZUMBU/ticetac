@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const journeyModel = require('../models/journeys');
 
+
 const city = [
   'Paris',
   'Marseille',

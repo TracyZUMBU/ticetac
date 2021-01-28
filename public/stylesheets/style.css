@@ -25,3 +25,11 @@ a {
   padding-top: 60px;
   font-size: 43px;
 }
+
+/* myTickets page */
+.container {
+}
+
+.table .total {
+  background: #f8a5c2;
+}

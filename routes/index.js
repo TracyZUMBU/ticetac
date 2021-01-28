@@ -31,6 +31,17 @@ router.get('/tickets', (req, res) => {
   res.render('tickets', { title: 'Tickets' });
 });
 
+/* Resume of order */
+router.get('/myTickets', (req, res) => {
+  res.render('myTickets', { title: 'Tickets' });
+});
+
+/* Get users's last tickets */
+router.get('/lastTickets', (req, res) => {
+  res.render('lastTickets', { title: 'Tickets' });
+});
+
+
 /* Get hompe page */
 router.get('/homepage', function (req, res, next) {
   res.render('homepage');

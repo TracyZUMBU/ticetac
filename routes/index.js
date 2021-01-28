@@ -36,16 +36,24 @@ router.get('/homepage', function (req, res, next) {
 });
 
 /* Route that retrieve trip's details */
-router.post('/results', function (req, res, next) {
-  const cityLocation = req.body.location;
-  const cityDestination = req.body.destination;
-  const dateOfDeparture = new Date(req.body.date).toUTCString();
-  res.redirect('homepage');
+router.post('/search-ticket', async function (req, res, next) {
+  const departure = req.body.location;
+  const arrival = req.body.destination;
+  const date = new Date(req.body.date);
+  
+  const aggregate = journeyModel.aggregate();
+  aggregate.match({
+    "departure": departure, "arrival": arrival, "date": date
+  })
+ 
+  const ticketList = await aggregate.exec()
+  if(ticketList.length > 0) {
+    res.redirect('tickets', {ticketList});
+  }else if(ticketList.length == 0) {
+    res.render('noTrain')
+  }
 });
-/* GET train page */
-router.get('/notrain', function (req, res, next) {
-  res.render('noTrain', { title: 'Express' });
-});
+
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function (req, res, next) {

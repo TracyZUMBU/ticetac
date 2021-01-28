@@ -45,8 +45,8 @@ router.post('/search-ticket', async function (req, res, next) {
   aggregate.match({
     "departure": departure, "arrival": arrival, "date": date
   })
- 
   const ticketList = await aggregate.exec()
+
   if(ticketList.length > 0) {
     res.redirect('tickets', {ticketList});
   }else if(ticketList.length == 0) {

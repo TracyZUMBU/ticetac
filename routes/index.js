@@ -38,8 +38,8 @@ router.get('/homepage', function (req, res, next) {
 /* Route that retrieve trip's details */
 router.post('/search-ticket', async function (req, res, next) {
   // stock details trip from front
-  const departure = req.body.location;
-  const arrival = req.body.destination;
+  const departure = req.body.departure;
+  const arrival = req.body.arrival;
   const date = new Date(req.body.date);
   
   // retrieve all the tickets that match above conditions
@@ -51,7 +51,7 @@ router.post('/search-ticket', async function (req, res, next) {
 
   // redirect the client toward a page depending on available tickets or not
   if(ticketList.length > 0) {
-    res.redirect('tickets', {ticketList});
+    res.render('tickets', {ticketList});
   }else if(ticketList.length == 0) {
     res.render('noTrain')
   }

@@ -10,24 +10,30 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/stylesheets/style-tickets.css" />
-    <title><%= title %></title>
+    <title></title>
   </head>
   <body>
     <div class="container">
       <div class="tickets">
-        <h3 class="mb-1">Tickets available on 02/08</h3>
+        <% 
+        const options = { day: "numeric",month: "numeric" };
+        const date = new Date(ticketList[0].date); 
+        const dateTrip = new
+        Intl.DateTimeFormat("fr-FR", options).format(date); 
+         %>
+        <h3 class="mb-1">Tickets available on <%=dateTrip%></h3>
+        <% for (var i = 0; i < ticketList.length; i++) { %>
         <div class="ticket p-1 mb-1">
-          <p class="ticket-city">Paris / Lille</p>
-          <p class="ticket-hour">train departure at : 15:00 pm</p>
-          <p class="ticket-price">93 €</p>
+          <p class="ticket-city">
+            <%=ticketList[i].departure%> / <%=ticketList[i].arrival%>
+          </p>
+          <p class="ticket-hour">
+            train departure at : <%=ticketList[i].departureTime%> pm
+          </p>
+          <p class="ticket-price"><%=ticketList[i].price%> €</p>
           <a href="#" class="btn btn-primary">Ok</a>
         </div>
-        <div class="ticket p-1 mb-1">
-          <p class="ticket-city">Paris / Lyon</p>
-          <p class="ticket-hour">train departure at : 6:53 am</p>
-          <p class="ticket-price">67 €</p>
-          <a href="#" class="btn btn-primary">Ok</a>
-        </div>
+        <%}%>
       </div>
     </div>
   </body>

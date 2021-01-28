@@ -23,11 +23,16 @@ const date = [
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
-}); 
+});
 
 /** Get Tickets page */
 router.get('/tickets', (req, res) => {
   res.render('tickets', { title: 'Tickets' });
+});
+
+/** Get My Tickets page */
+router.get('/my-tickets', (req, res) => {
+  res.render('myTickets', { title: 'Tickets' });
 });
 
 /* Get hompe page */

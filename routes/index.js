@@ -25,18 +25,23 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/** Get Tickets page */
+router.get('/tickets', (req, res) => {
+  res.render('tickets', { title: 'Tickets' });
+});
+
 /* Get hompe page */
-router.get('/homepage', function (req, res, next){
-  res.render('homepage')
-})
-  
+router.get('/homepage', function (req, res, next) {
+  res.render('homepage');
+});
+
 /* Route that retrieve trip's details */
-router.post('/results', function (req, res, next){
-  const cityLocation = req.body.location
-  const cityDestination = req.body.destination
-  const dateOfDeparture = new Date(req.body.date).toUTCString()
-  res.redirect('homepage')
-})
+router.post('/results', function (req, res, next) {
+  const cityLocation = req.body.location;
+  const cityDestination = req.body.destination;
+  const dateOfDeparture = new Date(req.body.date).toUTCString();
+  res.redirect('homepage');
+});
 /* GET train page */
 router.get('/notrain', function (req, res, next) {
   res.render('noTrain', { title: 'Express' });
@@ -86,7 +91,5 @@ router.get('/result', function (req, res, next) {
 
   res.render('index', { title: 'Express' });
 });
-
-
 
 module.exports = router;

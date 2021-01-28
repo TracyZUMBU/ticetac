@@ -1,7 +1,7 @@
 body {
   padding: 50px;
-  
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
   background: #d0e4f7;
   background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
   background: -webkit-linear-gradient(

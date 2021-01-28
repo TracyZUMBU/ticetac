@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* font-family: 'Poppins', sans-serif; */
+}
+
+body {
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  background: #d0e4f7;
+  background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+  background: -webkit-linear-gradient(
+    top,
+    #d0e4f7 0%,
+    #73b1e7 35%,
+    #0a77d5 76%
+  );
+  background: linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#0a77d5',GradientType=0 );
+  height: 100vh;
+}
+
+/* Utilities */
+.py-1 {
+  padding: 1.5rem 0;
+}
+.py-2 {
+  padding: 2rem 0;
+}
+.py-3 {
+  padding: 3rem 0;
+}
+
+.p-1 {
+  padding: 1.5rem;
+}
+.p-2 {
+  padding: 2rem;
+}
+.p-3 {
+  padding: 3rem;
+}
+
+.my-1 {
+  margin: 1.5rem 0;
+}
+.my-2 {
+  margin: 2rem 0;
+}
+.my-3 {
+  margin: 3rem 0;
+}
+
+.m-1 {
+  margin: 1.5rem;
+}
+.m-2 {
+  margin: 2rem;
+}
+.m-3 {
+  margin: 3rem;
+}
+
+.mb-1 {
+  margin: 0 0 1.2rem 0;
+}
+.mb-2 {
+  margin: 0 0 2rem 0;
+}
+.mb-3 {
+  margin: 0 0 3rem 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #eb4d4b;
+  border: 1px solid #eb4d4b;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: #e84118;
+}
+
+.btn-secondary {
+  background: #3ae374;
+  border: 2px solid #3ae374;
+  color: #fff;
+}
+
+.btn-outline {
+  background: transparent;
+  color: #03a9f4;
+}
+
+.btn-outline:hover {
+  background: #03a9f4;
+  color: #fff;
+}
+
+/* Tickets */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.tickets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.tickets h3 {
+  color: #fff;
+}
+
+.ticket {
+  width: 500px;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 0.5rem 2rem rgba(0, 0, 0, 0.15);
+  transition: 0.5s;
+}
+
+.ticket:hover {
+  transform: scale(1) translateY(-15px);
+}
+
+.ticket p {
+  margin-top: 8px;
+}
+
+.ticket-hour {
+  color: #6c757d;
+}

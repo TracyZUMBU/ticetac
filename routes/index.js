@@ -23,7 +23,7 @@ const date = [
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
-});
+}); 
 
 /** Get Tickets page */
 router.get('/tickets', (req, res) => {

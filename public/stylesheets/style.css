@@ -2,7 +2,6 @@ body {
   padding: 50px;
 
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-  background: #d0e4f7;
   background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
   background: -webkit-linear-gradient(
     top,
@@ -11,13 +10,18 @@ body {
     #0a77d5 76%
   );
   background: linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#0a77d5',GradientType=0 );
   height: 100vh;
   color: white;
 }
 
-a {
-  color: #00b7ff;
+.login {
+  color: black;
+}
+
+.login:hover {
+  color: brown;
 }
 
 /* Styling homepage */
@@ -27,9 +31,24 @@ a {
 }
 
 /* myTickets page */
-.container {
-}
-
 .table .total {
   background: #f8a5c2;
+}
+
+/*Styling Sign-in Sign-up*/
+.titleForm {
+  font: 30px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+.home {
+  width: 60%;
+  margin: auto;
+}
+
+/*Styling nav bar */
+.navbar-brand {
+  font: 17px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+.text-decoration-none {
+  font: 17px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }

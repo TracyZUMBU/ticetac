@@ -22,7 +22,7 @@ const date = [
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('homepage', { title: 'Express' });
 });
 
 // Remplissage de la base de donnée, une fois suffit
@@ -69,5 +69,7 @@ router.get('/result', function (req, res, next) {
 
   res.render('index', { title: 'Express' });
 });
+
+
 
 module.exports = router;

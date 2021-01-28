@@ -23,16 +23,11 @@ const date = [
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
-});
+}); 
 
 /** Get Tickets page */
 router.get('/tickets', (req, res) => {
   res.render('tickets', { title: 'Tickets' });
-});
-
-/** Get My Tickets page */
-router.get('/my-tickets', (req, res) => {
-  res.render('myTickets', { title: 'Tickets' });
 });
 
 /* Get hompe page */
@@ -42,16 +37,19 @@ router.get('/homepage', function (req, res, next) {
 
 /* Route that retrieve trip's details */
 router.post('/search-ticket', async function (req, res, next) {
+  // stock details trip from front
   const departure = req.body.location;
   const arrival = req.body.destination;
   const date = new Date(req.body.date);
   
+  // retrieve all the tickets that match above conditions
   const aggregate = journeyModel.aggregate();
   aggregate.match({
     "departure": departure, "arrival": arrival, "date": date
   })
   const ticketList = await aggregate.exec()
 
+  // redirect the client toward a page depending on available tickets or not
   if(ticketList.length > 0) {
     res.redirect('tickets', {ticketList});
   }else if(ticketList.length == 0) {

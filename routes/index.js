@@ -22,9 +22,12 @@ const date = [
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('homepage', { title: 'Express' });
+  res.render('index', { title: 'Express' });
 });
 
+router.get('/homepage', function (req, res, next){
+  res.render('homepage')
+})
 /* GET train page */
 router.get('/results', function (req, res, next) {
   res.render('noTrain', { title: 'Express' });

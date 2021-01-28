@@ -30,8 +30,15 @@ router.post('/sign-up', async function(req,res,next){
     res.redirect('/homepage')
   } else {
     res.redirect('/')
-  }
+  }});
 
+router.get('/', function (req, res, next) {
+  res.send('respond with a resource');
+});
+
+/** Get My Last Trips Page */
+router.get('/last-trips', (req, res) => {
+  res.render('lastTrips', { title: 'My last trips' });
 });
 
 module.exports = router;

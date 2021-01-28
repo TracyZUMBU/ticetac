@@ -16,12 +16,34 @@ body {
   color: white;
 }
 
-a {
-  color: #00b7ff;
+.login {
+  color: black;
+}
+
+.login:hover {
+  color: brown
 }
 
 /* Styling homepage */
 .heading-primary {
   padding-top: 60px;
   font-size: 43px;
+}
+
+/*Styling Sign-in Sign-up*/
+.titleForm {
+  font: 30px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+.home {
+  width: 60%;
+  margin:auto;
+}
+
+/*Styling nav bar */
+.navbar-brand {
+  font: 17px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+.text-decoration-none {
+  font: 17px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }

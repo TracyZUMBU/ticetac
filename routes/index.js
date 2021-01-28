@@ -30,6 +30,23 @@ router.get('/tickets', (req, res) => {
   res.render('tickets', { title: 'Tickets' });
 });
 
+/* Get hompe page */
+router.get('/homepage', function (req, res, next) {
+  res.render('homepage');
+});
+
+/* Route that retrieve trip's details */
+router.post('/results', function (req, res, next) {
+  const cityLocation = req.body.location;
+  const cityDestination = req.body.destination;
+  const dateOfDeparture = new Date(req.body.date).toUTCString();
+  res.redirect('homepage');
+});
+/* GET train page */
+router.get('/notrain', function (req, res, next) {
+  res.render('noTrain', { title: 'Express' });
+});
+
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function (req, res, next) {
   // How many journeys we want

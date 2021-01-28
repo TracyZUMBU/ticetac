@@ -1,8 +1,7 @@
 body {
   padding: 50px;
 
-  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
-  background: #d0e4f7;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
   background: -webkit-linear-gradient(
     top,
@@ -10,7 +9,10 @@ body {
     #73b1e7 35%,
     #0a77d5 76%
   );
-  background: linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+  background:
+    linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+    
+    
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#0a77d5',GradientType=0 );
   height: 100vh;
   color: white;

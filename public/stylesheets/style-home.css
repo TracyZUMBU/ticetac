@@ -1,0 +1,13 @@
+body{
+    background: -moz-linear-gradient(top, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+    background: -webkit-linear-gradient(
+      top,
+      #d0e4f7 0%,
+      #73b1e7 35%,
+      #0a77d5 76%
+    );
+    background: url("/images/landmark.png"),
+      linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
+      background-repeat: no-repeat;
+      background-position: center;
+}

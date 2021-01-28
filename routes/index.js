@@ -25,6 +25,11 @@ router.get('/', function (req, res, next) {
   res.render('homepage', { title: 'Express' });
 });
 
+/* GET train page */
+router.get('/results', function (req, res, next) {
+  res.render('noTrain', { title: 'Express' });
+});
+
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function (req, res, next) {
   // How many journeys we want

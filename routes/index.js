@@ -25,11 +25,20 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+/* Get hompe page */
 router.get('/homepage', function (req, res, next){
   res.render('homepage')
 })
+  
+/* Route that retrieve trip's details */
+router.post('/results', function (req, res, next){
+  const cityLocation = req.body.location
+  const cityDestination = req.body.destination
+  const dateOfDeparture = new Date(req.body.date).toUTCString()
+  res.redirect('homepage')
+})
 /* GET train page */
-router.get('/results', function (req, res, next) {
+router.get('/notrain', function (req, res, next) {
   res.render('noTrain', { title: 'Express' });
 });
 

@@ -16,7 +16,7 @@
       <div class="container d-flex flex-column">
 
           <h1 class="heading-primary">One-way ticket:</h1>
-          <form class="container" action="#" method="POST">
+          <form class="container" action="/results" method="post">
             <div class="row">
               <div class="col-sm">
                 <div class="input-group flex-nowrap">
@@ -26,6 +26,7 @@
                     placeholder="From: Paris, Marseille"
                     aria-label="city-from"
                     aria-describedby="addon-wrapping"
+                    name="location"
                   />
                 </div>
               </div>
@@ -37,12 +38,13 @@
                         placeholder="To: Lille, Nantes"
                         aria-label="ciy-to"
                         aria-describedby="addon-wrapping"
+                        name="destination"
                       />
                     </div>
               </div>
               <div class="col-sm">
                   <div class="input-group date" data-provide="datepicker">
-                      <input type="date" class="form-control">
+                      <input type="date" class="form-control" name="date">
                       <div class="input-group-addon">
                           <span class="glyphicon glyphicon-th"></span>
                       </div>

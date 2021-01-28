@@ -37,8 +37,8 @@ router.get('/myTickets', (req, res) => {
 });
 
 /* Get users's last tickets */
-router.get('/lastTickets', (req, res) => {
-  res.render('lastTickets', { title: 'Tickets' });
+router.get('/lastTrips', (req, res) => {
+  res.render('lastTrips', { title: 'Tickets' });
 });
 
 

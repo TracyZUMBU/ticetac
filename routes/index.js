@@ -33,7 +33,7 @@ router.get('/tickets', (req, res) => {
 });
 
 /* Resume of order */
-router.get('/myTickets', (req, res) => {
+router.get('/myTickets', async (req, res) => {
   const idTicket = "id du ticket le front"
   const idUser = "id du user front le front"
   const addTicket = await usersModel.updateOne(
@@ -44,7 +44,7 @@ router.get('/myTickets', (req, res) => {
 });
 
 /* Get users's last tickets */
-router.get('/lastTrips', (req, res) => {
+router.get('/lastTrips', async (req, res) => {
   const idUser = "recupérer l'id du user"
   const ticketBought = await usersModel.findById(idUser)
   .populate('tickets')

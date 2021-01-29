@@ -30,7 +30,12 @@ router.post('/sign-up', async function (req, res, next) {
 
     res.redirect('/homepage');
   } else {
-    res.redirect('/');
+    var isExist = false;
+    if (searchUser != null) {
+    isExist = true;
+    }
+    console.log(searchUser.email);
+    res.render('index', {isExist});
   }
 });
 
@@ -41,7 +46,7 @@ router.post('/sign-in', async function (req, res, next) {
     password: req.body.passwordFromFront,
   });
 
-  console.log(searchUser, 'je cherche si tu existes');
+  
 
   if (searchUser != null) {
     req.session.user = {
@@ -49,8 +54,11 @@ router.post('/sign-in', async function (req, res, next) {
       id: searchUser._id,
     };
     res.redirect('/homepage');
+
   } else {
-    res.redirect('/');
+    var usersNotExist = true;
+    var isExist = false;
+    res.render('index', {usersNotExist, isExist});
   }
 });
 
@@ -84,7 +92,7 @@ router.get('/add-ticket/', (req, res) => {
     departuretime: req.query.depTime,
     price: req.query.price,
   });
-  console.log(req.session.ticketCart);
+  
 
   const reducer = (accumulator, currentValue) => {
     return accumulator + currentValue;
@@ -98,7 +106,7 @@ router.get('/add-ticket/', (req, res) => {
     return prices;
   };
 
-  console.log(getItemPrice().reduce(reducer));
+  
   // getItemPrice();
 
   res.render('myTickets', {
@@ -108,8 +116,39 @@ router.get('/add-ticket/', (req, res) => {
 });
 
 /** Get My Last Trips Page */
-router.get('/last-trips', (req, res) => {
-  res.render('lastTrips', { title: 'My last trips' });
+router.get('/last-trips', async (req, res) => {
+  
+  const userTickets = await usersModel
+  .findById({_id: req.session.user.id})
+  .populate('tickets')
+  .exec()
+  res.render('lastTrips', {userTickets });
 });
+
+/** Get all tickets that have been confirmed */
+router.get('/allTickets', async (req, res) => {
+  console.log("query from front: ", req.query.allTicket);
+  const idUser = req.session.user.id;
+  const arrayId = req.query.allTicket
+  const itemsId = arrayId[0].split(",")
+  
+  // 1. add id to the DB
+  
+  for(var i = 0; i < itemsId.length; i++) {
+    const addTicket = await usersModel.updateOne(
+      { _id: idUser },
+      { $push: {tickets: itemsId[i]}}
+    );
+  }
+  const userTickets = await usersModel
+  .findById(idUser)
+  .populate('tickets')
+  .exec()
+  // 2.if DB fill send popup
+
+  // 3. redirect to last ticket
+  res.render('lastTrips', {userTickets})
+  
+})
 
 module.exports = router;

@@ -23,7 +23,7 @@ const date = [
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', isExist: false, usersNotExist: false});
 });
 
 /** Get Tickets page */
@@ -33,6 +33,10 @@ router.get('/tickets', (req, res) => {
 
 /* Resume of order */
 router.get('/myTickets', async (req, res) => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 989013cbce7cd523ea854d087b7689ce1032c792
   console.log(req.session.user);
   console.log(req.session.ticketCart[0], 'Tableau');
   const idTicket = 'id du ticket le front';
@@ -46,11 +50,20 @@ router.get('/myTickets', async (req, res) => {
 
 /* Get users's last tickets */
 router.get('/lastTrips', async (req, res) => {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 989013cbce7cd523ea854d087b7689ce1032c792
   const idUser = "recupérer l'id du user";
   const ticketBought = await usersModel
     .findById(idUser)
     .populate('tickets')
     .exec();
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 989013cbce7cd523ea854d087b7689ce1032c792
   res.render('lastTrips', { ticketList: ticketBought });
 });
 

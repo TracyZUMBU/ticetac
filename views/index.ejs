@@ -44,7 +44,9 @@
               <div class="form-group">
                 <input name="passwordFromFront" type="password" class="form-control" placeholder="Enter password">
               </div>
-
+              <% if (usersNotExist) { %>
+                <p id="compte">Votre compte n'existe pas. <br> Veuillez créer un compte.<br/></p>
+              <%}%>
               <button type="submit" class="btn btn-danger">Confirm</button>
             </form>
 
@@ -52,13 +54,11 @@
 
         </div>
 
-
         <!-- SIGN UP AREA -->
         <div class="col-12 col-sm-6 text-center">
 
           <div class="formArea">
             <h4 class="titleForm">Sign-up:</h4>
-
             <form action="/users/sign-up" method="POST">
               <div class="form-group">
                 <input name="NameFromFront" type="text" class="form-control" placeholder="Name">
@@ -69,10 +69,12 @@
               <div class="form-group">
                 <input name="emailFromFront" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
               </div>
+              <% if (isExist==true) { %>
+                <p id="compte">Vous avez déjà un compte. <br> Veuillez-vous connecter directement.<br/></p>
+              <%}%>
               <div class="form-group">
                 <input name="passwordFromFront" type="password" class="form-control"  placeholder="Enter password">
               </div>
-
               <button type="submit" class="btn btn-danger">Confirm</button>
             </form>
           </div>

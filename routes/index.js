@@ -48,7 +48,6 @@ router.get('/myTickets', async (req, res) => {
 /* Get users's last tickets */
 router.get('/lastTrips', async (req, res) => {
 
-HEAD
   const idUser = "recupérer l'id du user";
   const ticketBought = await usersModel
     .findById(idUser)

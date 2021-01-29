@@ -32,7 +32,12 @@
           </tr>
         </thead>
         <tbody>
-          <% ticketCart.forEach((ticket) => { %>
+         
+          <% 
+          let allIdTicket = []
+          ticketCart.forEach((ticket) => {
+            allIdTicket.push(ticket._id)
+            %>
           <tr>
             <th scope="row">1</th>
             <td><%= ticket.departure %> / <%= ticket.arrival %></td>
@@ -45,6 +50,7 @@
             <th scope="row">Total</th>
             <td colspan="3"></td>
             <td><%= getTicketPrice %>€</td>
+            
           </tr>
         </tbody>
       </table>
@@ -52,14 +58,14 @@
       <!-- Modal -->
       <!-- Button trigger modal -->
       <div class="float-right">
-        <button
+        <a href="/users/allTickets?allTicket[]=<%=allIdTicket%>"
           type="button"
           class="btn btn-danger"
-          data-toggle="modal"
-          data-target="#confirmModal"
+          
+
         >
           Confirm
-        </button>
+        </a>
       </div>
 
       <!-- Modal -->

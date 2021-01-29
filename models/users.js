@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const travelSchema = mongoose.Schema({
-  journey: { type: mongoose.Schema.Types.ObjectId, ref: 'journeys' },
-  orderDate: Date,
-});
+// const travelSchema = mongoose.Schema({
+//   journey: { type: mongoose.Schema.Types.ObjectId, ref: 'journeys' },
+//   orderDate: Date,
+// });
 
 const usersSchema = mongoose.Schema({
   name: String,

@@ -17,7 +17,7 @@ body {
   );
   background: linear-gradient(to bottom, #d0e4f7 0%, #73b1e7 35%, #0a77d5 76%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d0e4f7', endColorstr='#0a77d5',GradientType=0 );
-  height: 100vh;
+  /* min-height: 100vh; */
 }
 
 /* Utilities */
@@ -116,6 +116,49 @@ li {
   color: #fff;
 }
 
+/* Navbar */
+#navbar {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  color: #333;
+  justify-content: space-between;
+  z-index: 1;
+  padding: 1.3rem;
+  width: 100%;
+}
+
+#navbar .logo {
+  display: flex;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.logo h1 {
+  align-self: center;
+}
+
+#navbar ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+#navbar ul li a {
+  color: #333;
+  padding: 0.75rem;
+  margin: 0 0.25rem;
+}
+
+#navbar ul li a:hover {
+  background: #fc5c65;
+  color: #fff;
+  border-radius: 5px;
+}
+
 /* Tickets */
 .container {
   max-width: 1100px;
@@ -127,7 +170,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .tickets h3 {
@@ -135,7 +178,7 @@ li {
 }
 
 .ticket {
-  width: 500px;
+  width: 550px;
   background: #fff;
   display: flex;
   justify-content: space-between;

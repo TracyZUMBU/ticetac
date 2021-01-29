@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const journeyModel = require('../models/journeys');
 
-
 const city = [
   'Paris',
   'Marseille',
@@ -24,7 +23,7 @@ const date = [
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('index', { title: 'Express' });
-}); 
+});
 
 /** Get Tickets page */
 router.get('/tickets', (req, res) => {
@@ -41,7 +40,6 @@ router.get('/lastTrips', (req, res) => {
   res.render('lastTrips', { title: 'Tickets' });
 });
 
-
 /* Get hompe page */
 router.get('/homepage', function (req, res, next) {
   res.render('homepage');
@@ -53,22 +51,23 @@ router.post('/search-ticket', async function (req, res, next) {
   const departure = req.body.departure;
   const arrival = req.body.arrival;
   const date = new Date(req.body.date);
-  
+
   // retrieve all the tickets that match above conditions
   const aggregate = journeyModel.aggregate();
   aggregate.match({
-    "departure": departure, "arrival": arrival, "date": date
-  })
-  const ticketList = await aggregate.exec()
+    departure: departure,
+    arrival: arrival,
+    date: date,
+  });
+  const ticketList = await aggregate.exec();
 
   // redirect the client toward a page depending on available tickets or not
-  if(ticketList.length > 0) {
-    res.render('tickets', {ticketList});
-  }else if(ticketList.length == 0) {
-    res.render('noTrain')
+  if (ticketList.length > 0) {
+    res.render('tickets', { ticketList, user: req.session.user });
+  } else if (ticketList.length == 0) {
+    res.render('noTrain');
   }
 });
-
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function (req, res, next) {

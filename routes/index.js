@@ -3,7 +3,6 @@ const router = express.Router();
 const journeyModel = require('../models/journeys');
 const usersModel = require('../models/users');
 
-
 const city = [
   'Paris',
   'Marseille',
@@ -34,21 +33,40 @@ router.get('/tickets', (req, res) => {
 
 /* Resume of order */
 router.get('/myTickets', async (req, res) => {
+<<<<<<< HEAD
+  console.log(req.session.user);
+  console.log(req.session.ticketCart[0], 'Tableau');
+  const idTicket = 'id du ticket le front';
+  const idUser = req.session.user.id;
+  // const addTicket = await usersModel.updateOne(
+  //   { _id: idUser },
+  //   { tickets: tickets.push(idTicket) }
+  // );
+=======
   const idTicket = "id du ticket le front"
   const idUser = "id du user front le front"
   const addTicket = await usersModel.updateOne(
     {_id: idUser},
     {tickets: tickets.push(idTicket)}
   )
+>>>>>>> 7221ecda948a1508f199dfd146cd7b9e1ea2dd74
   res.render('myTickets', { title: 'Tickets' });
 });
 
 /* Get users's last tickets */
 router.get('/lastTrips', async (req, res) => {
+<<<<<<< HEAD
+  const idUser = "recupérer l'id du user";
+  const ticketBought = await usersModel
+    .findById(idUser)
+    .populate('tickets')
+    .exec();
+=======
   const idUser = "recupérer l'id du user"
   const ticketBought = await usersModel.findById(idUser)
   .populate('tickets')
   .exec()
+>>>>>>> 7221ecda948a1508f199dfd146cd7b9e1ea2dd74
   res.render('lastTrips', { ticketList: ticketBought });
 });
 

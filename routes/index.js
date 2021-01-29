@@ -24,7 +24,7 @@ const date = [
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Express', isExist: false, usersNotExist: false});
 });
 
 /** Get Tickets page */

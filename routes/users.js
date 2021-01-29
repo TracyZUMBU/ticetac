@@ -30,7 +30,12 @@ router.post('/sign-up', async function (req, res, next) {
 
     res.redirect('/homepage');
   } else {
-    res.redirect('/');
+    var isExist = false;
+    if (searchUser != null) {
+    isExist = true;
+    }
+    console.log(searchUser.email);
+    res.render('index', {isExist});
   }
 });
 
@@ -49,8 +54,11 @@ router.post('/sign-in', async function (req, res, next) {
       id: searchUser._id,
     };
     res.redirect('/homepage');
+
   } else {
-    res.redirect('/');
+    var usersNotExist = true;
+    var isExist = false;
+    res.render('index', {usersNotExist, isExist});
   }
 });
 

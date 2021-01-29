@@ -51,7 +51,11 @@
             train departure at : <%=ticketList[i].departureTime%> pm
           </p>
           <p class="ticket-price"><%=ticketList[i].price%> €</p>
-          <a href="/users/" class="btn btn-primary">Ok</a>
+          <a
+            href="/users/add-ticket/?id=<%= ticketList[i]._id %>&dep=<%= ticketList[i].departure %>&arv=<%= ticketList[i].arrival %>&date=<%= ticketList[i].date %>&depTime=<%= ticketList[i].departureTime %>&price=<%= ticketList[i].price %>"
+            class="btn btn-primary"
+            >Ok</a
+          >
         </div>
         <%}%>
         <div id="assets-list">

@@ -54,6 +54,16 @@ router.post('/sign-in', async function (req, res, next) {
   }
 });
 
+/** Get / page */
+router.get('/sign-in', (req, res) => {
+  res.redirect('/');
+});
+
+/** Get / page */
+router.get('/sign-up', (req, res) => {
+  res.redirect('/');
+});
+
 /** Logout */
 router.get('/logout', (req, res) => {
   req.session.user = null;

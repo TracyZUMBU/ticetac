@@ -70,9 +70,41 @@ router.get('/logout', (req, res) => {
   res.redirect('/homepage');
 });
 
-/** Get My Tickets Page */
-router.get('/my-tickets', (req, res) => {
-  res.render('myTickets', { title: 'My tickets' });
+/** Add Ticket */
+router.get('/add-ticket/', (req, res) => {
+  if (!req.session.ticketCart) {
+    req.session.ticketCart = [];
+  }
+
+  req.session.ticketCart.push({
+    _id: req.query.id,
+    departure: req.query.dep,
+    arrival: req.query.arv,
+    date: req.query.date,
+    departuretime: req.query.depTime,
+    price: req.query.price,
+  });
+  console.log(req.session.ticketCart);
+
+  const reducer = (accumulator, currentValue) => {
+    return accumulator + currentValue;
+  };
+
+  const getItemPrice = () => {
+    const prices = [];
+    req.session.ticketCart.forEach((item) => {
+      prices.push(+item.price);
+    });
+    return prices;
+  };
+
+  console.log(getItemPrice().reduce(reducer));
+  // getItemPrice();
+
+  res.render('myTickets', {
+    ticketCart: req.session.ticketCart,
+    getTicketPrice: getItemPrice().reduce(reducer),
+  });
 });
 
 /** Get My Last Trips Page */

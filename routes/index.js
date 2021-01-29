@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const journeyModel = require('../models/journeys');
+const usersModel = require('../models/users');
+
 
 const city = [
   'Paris',
@@ -32,12 +34,22 @@ router.get('/tickets', (req, res) => {
 
 /* Resume of order */
 router.get('/myTickets', (req, res) => {
+  const idTicket = "id du ticket le front"
+  const idUser = "id du user front le front"
+  const addTicket = await usersModel.updateOne(
+    {_id: idUser},
+    {tickets: tickets.push(idTicket)}
+  )
   res.render('myTickets', { title: 'Tickets' });
 });
 
 /* Get users's last tickets */
 router.get('/lastTrips', (req, res) => {
-  res.render('lastTrips', { title: 'Tickets' });
+  const idUser = "recupérer l'id du user"
+  const ticketBought = await usersModel.findById(idUser)
+  .populate('tickets')
+  .exec()
+  res.render('lastTrips', { ticketList: ticketBought });
 });
 
 /* Get hompe page */

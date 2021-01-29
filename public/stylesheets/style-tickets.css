@@ -100,11 +100,11 @@ li {
   background: #e84118;
 }
 
-.btn-secondary {
+/* .btn-secondary {
   background: #3ae374;
   border: 2px solid #3ae374;
   color: #fff;
-}
+} */
 
 .btn-outline {
   background: transparent;
@@ -198,4 +198,39 @@ li {
 
 .ticket-hour {
   color: #6c757d;
+}
+
+.search {
+  font-display: inline;
+  background-color: white ;
+  color: #333;
+  border-radius: 6px;
+  padding: 5px;
+  text-transform: none;
+  letter-spacing: 1px;
+  transition: 0.2s;
+  cursor: pointer;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+.panier {
+  font-display: inline;
+  border-radius: 6px;
+  background-color: #fc5c65;
+  color:  #fff;
+  padding: 5px;
+  text-transform: none;
+  letter-spacing: 1px;
+  transition: 0.2s;
+  cursor: pointer;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+#assets-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  cursor: pointer;
+  padding: 5px;
+  transition: 0.2s;
 }

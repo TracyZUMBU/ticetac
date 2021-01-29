@@ -16,7 +16,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/stylesheets/style.css" />
-    <title><%= title %></title>
+    <title></title>
   </head>
   <body>
     <div class="container">
@@ -32,24 +32,19 @@
           </tr>
         </thead>
         <tbody>
+          <% ticketCart.forEach((ticket) => { %>
           <tr>
             <th scope="row">1</th>
-            <td>Paris / Lille</td>
+            <td><%= ticket.departure %> / <%= ticket.arrival %></td>
             <td>02/08/2019</td>
-            <td>06:53 am</td>
-            <td>93 €</td>
+            <td><%= ticket.departuretime %> am</td>
+            <td><%= ticket.price %> €</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Paris / Bordeaux</td>
-            <td>02/08/2019</td>
-            <td>15:00 pm</td>
-            <td>67 €</td>
-          </tr>
+          <% }) %>
           <tr class="total">
             <th scope="row">Total</th>
             <td colspan="3"></td>
-            <td>218 €</td>
+            <td><%= getTicketPrice %>€</td>
           </tr>
         </tbody>
       </table>

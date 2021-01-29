@@ -11,7 +11,6 @@ const usersSchema = mongoose.Schema({
   firstName: String,
   email: String,
   password: String,
-  travels: [travelSchema],
 });
 
 const usersModel = mongoose.model('users', usersSchema);

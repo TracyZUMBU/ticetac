@@ -55,9 +55,11 @@ router.post('/search-ticket', async function (req, res, next) {
   // retrieve all the tickets that match above conditions
   const aggregate = journeyModel.aggregate();
   aggregate.match({
-    "departure": departure, "arrival": arrival, "date": date
-  })
-  const ticketList = await aggregate.exec()
+    "departure": departure,
+    "arrival": arrival,
+    "date": date,
+  });
+  const ticketList = await aggregate.exec();
 
   // redirect the client toward a page depending on available tickets or not
   if(ticketList.length > 0) {

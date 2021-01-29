@@ -62,10 +62,10 @@ router.post('/search-ticket', async function (req, res, next) {
   const ticketList = await aggregate.exec();
 
   // redirect the client toward a page depending on available tickets or not
-  if (ticketList.length > 0) {
-    res.render('tickets', { ticketList, user: req.session.user });
-  } else if (ticketList.length == 0) {
-    res.render('noTrain');
+  if(ticketList.length > 0) {
+    res.render('tickets', {ticketList});
+  }else if(ticketList.length == 0) {
+    res.render('noTrain')
   }
 });
 

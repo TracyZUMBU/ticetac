@@ -13,21 +13,34 @@
     <title></title>
   </head>
   <body>
+    <!-- Navbar -->
+    <nav id="navbar">
+      <div class="logo">
+        <img src="/images/train.png" alt="Train logo" />
+        <h1>Ticketac</h1>
+      </div>
+      <ul>
+        <% if(user == null) { console.log(user); %>
+        <li><a href="/users/sign-in">Connection</a></li>
+        <li><a href="/users/sign-up">Sign up</a></li>
+        <% } else { %>
+        <li><a href="/users/last-trips">My last trips</a></li>
+        <li>
+          <a href="#"
+            ><i class="fas fa-user"></i> Hello <%= user.firstName %></a
+          >
+        </li>
+        <li>
+          <a href="/users/logout"><i class="fas fa-sign-out-alt"></i></a>
+        </li>
+        <% } %>
+      </ul>
+    </nav>
     <div class="container">
       <div class="tickets">
-<<<<<<< HEAD
         <% const options = { day: "numeric",month: "numeric" }; const date = new
         Date(ticketList[0].date); const dateTrip = new
         Intl.DateTimeFormat("fr-FR", options).format(date); %>
-=======
-        <% 
-        
-        const options = { day: "numeric",month: "numeric" };
-        const date = new Date(ticketList[0].date); 
-        const dateTrip = new
-        Intl.DateTimeFormat("fr-FR", options).format(date); 
-         %>
->>>>>>> 53b91a8ebb9ac572c535771c6bb32495b9687b5b
         <h3 class="mb-1">Tickets available on <%=dateTrip%></h3>
         <% for (var i = 0; i < ticketList.length; i++) { %>
         <div class="ticket p-1 mb-1">

@@ -40,7 +40,6 @@ router.get('/lastTrips', (req, res) => {
   res.render('lastTrips', { title: 'Tickets' });
 });
 
-
 /* Get hompe page */
 router.get('/homepage', function (req, res, next) {
   res.render('homepage');
@@ -64,7 +63,7 @@ router.post('/search-ticket', async function (req, res, next) {
 
   // redirect the client toward a page depending on available tickets or not
   if (ticketList.length > 0) {
-    res.render('tickets', { ticketList });
+    res.render('tickets', { ticketList, user: req.session.user });
   } else if (ticketList.length == 0) {
     res.render('noTrain');
   }

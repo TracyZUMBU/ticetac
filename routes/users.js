@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const usersModel = require('../models/users');
+const journeyModel = require('../models/journeys');
 
 /* GET users listing. */
 
@@ -27,8 +28,6 @@ router.post('/sign-up', async function (req, res, next) {
       id: newUserSave._id,
     };
 
-    console.log(req.session.user, 'hellooooooooooooooo');
-
     res.redirect('/homepage');
   } else {
     res.redirect('/');
@@ -37,7 +36,7 @@ router.post('/sign-up', async function (req, res, next) {
 
 /* GET SIGN IN */
 router.post('/sign-in', async function (req, res, next) {
-  var searchUser = await usersModel.findOne({
+  let searchUser = await usersModel.findOne({
     email: req.body.emailFromFront,
     password: req.body.passwordFromFront,
   });
@@ -46,13 +45,19 @@ router.post('/sign-in', async function (req, res, next) {
 
   if (searchUser != null) {
     req.session.user = {
-      name: searchUser.name,
+      firstName: searchUser.firstName,
       id: searchUser._id,
     };
     res.redirect('/homepage');
   } else {
     res.redirect('/');
   }
+});
+
+/** Logout */
+router.get('/logout', (req, res) => {
+  req.session.user = null;
+  res.redirect('/homepage');
 });
 
 /** Get My Tickets Page */
